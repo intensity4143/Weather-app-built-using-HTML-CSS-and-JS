@@ -22,9 +22,10 @@ let preciLeft = document.getElementById('preci-slide')
 
 // fetching data using city name
 async function getData(cityName) {
-    const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=81c0f7320f3249c7886132735252302&q=${cityName}&aqi=yes`)
-    return await response.json()
+    const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=81c0f7320f3249c7886132735252302&q=${cityName}&aqi=yes`);
+    return await response.json();
 }
+
 // ----------------- Calculating local Date, Day, Month Name-----------------------------------
 // day calculator function
 function callDay(inputDate){
@@ -107,19 +108,20 @@ button.addEventListener('click',async(e)=>{
 
 
 //------------------------ fetching data using latitude and longitude(current location)----------
-async function getCurrData(lat,long) {
+async function getCurrData(lat, long) {
     try {
-        const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=81c0f7320f3249c7886132735252302&q=${lat},${long}&aqi=yes`)
-    
-    // if response if like 404 or any other error
-    if (!response.ok) {
-        throw new Error(`HTTP Error: ${response.status} ${response.statusText}`);
+        const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=81c0f7320f3249c7886132735252302&q=${lat},${long}&aqi=yes`);
+
+        if (!response.ok) {
+            throw new Error(`HTTP Error: ${response.status} ${response.statusText}`);
+        }
+
+        return await response.json();
+    } catch (error) {
+        console.log("Error while fetching data:", error);
     }
-    return await response.json()
-   } catch (error) {
-    console.log("error while fetching data")
-   }
 }
+
 
 //-------------------------- Current Location weather ------------------------
 
