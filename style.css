@@ -73,6 +73,7 @@ button {
     border-radius: 50px;
     margin-left: 5px;
     border: none;
+    cursor:pointer;
 }
 
 .fa-solid {
