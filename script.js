@@ -66,7 +66,7 @@ function setData(data) {
     // updating day, Month, Date 
     const localDay = callDay(data.location.localtime.slice(0,10))        
     const localMonth = callMonth(data.location.localtime.slice(0,10))  
-    const localDate = data.location.localtime.slice(9,10)
+    const localDate = data.location.localtime.slice(8,10)
     day.innerText = `${localDay} ${localDate} ${localMonth} `                
     
     // updtaing temp based on selected units
